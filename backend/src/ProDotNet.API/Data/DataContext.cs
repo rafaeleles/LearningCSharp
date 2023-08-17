@@ -7,6 +7,6 @@ namespace ProDotNet.API.Data
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
 
-        public DbSet<Evento> Evento { get; set; }
+        public DbSet<Evento> Eventos { get; set; }
     }
 }

@@ -34,6 +34,7 @@ namespace ProDotNet.API
                 );
 
             services.AddControllers();
+            services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProDotNet.API", Version = "v1" });
@@ -55,6 +56,11 @@ namespace ProDotNet.API
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(x => x.AllowAnyHeader()
+                              .AllowAnyMethod()
+                              .AllowAnyOrigin()
+            );
 
             app.UseEndpoints(endpoints =>
             {
